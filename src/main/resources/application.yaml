@@ -10,6 +10,11 @@ api:
         readTimeout: 2000
         connectTimeout: 2000
         secure: true
+    postcode:
+        url: https://api.postcodes.io
+        readTimeout: 1500
+        connectTimeout: 500
+        secure: true
 management:
     endpoints:
         web:

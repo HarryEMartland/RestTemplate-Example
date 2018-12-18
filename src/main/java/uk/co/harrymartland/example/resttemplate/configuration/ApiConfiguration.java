@@ -63,6 +63,17 @@ public class ApiConfiguration {
                 .build();
     }
 
+    @Bean
+    public RestTemplate postcodeRestTemplate(RestTemplateBuilder restTemplateBuilder) {
+        ApiProperties.ApiProperty properties = apiProperties.getPostcode();
+        return restTemplateBuilder
+                .rootUri(properties.getUrl())
+                .setConnectTimeout(properties.getConnectTimeout())
+                .setReadTimeout(properties.getReadTimeout())
+                .interceptors()
+                .build();
+    }
+
     private void monitor(PoolingHttpClientConnectionManager manager) {
         meterRegistry.gauge("http.pool.total", Tags.of("status", "leased"), manager, (m) -> m.getTotalStats().getLeased());
         meterRegistry.gauge("http.pool.total", Tags.of("status", "pending"), manager, (m) -> m.getTotalStats().getPending());
@@ -70,6 +81,7 @@ public class ApiConfiguration {
 
         monitor(manager,  apiProperties.getCatFacts());
         monitor(manager, apiProperties.getJoke());
+        monitor(manager, apiProperties.getPostcode());
     }
 
     private void monitor(PoolingHttpClientConnectionManager manager, ApiProperties.ApiProperty joke) {

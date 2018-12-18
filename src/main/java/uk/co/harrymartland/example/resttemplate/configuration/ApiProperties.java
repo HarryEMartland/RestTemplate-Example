@@ -9,6 +9,7 @@ public class ApiProperties {
 
     private ApiProperty catFacts;
     private ApiProperty joke;
+    private ApiProperty postcode;
 
     public ApiProperty getCatFacts() {
         return catFacts;
@@ -24,6 +25,14 @@ public class ApiProperties {
 
     public void setJoke(ApiProperty joke) {
         this.joke = joke;
+    }
+
+    public ApiProperty getPostcode() {
+        return postcode;
+    }
+
+    public void setPostcode(ApiProperty postcode) {
+        this.postcode = postcode;
     }
 
     public static class ApiProperty{
