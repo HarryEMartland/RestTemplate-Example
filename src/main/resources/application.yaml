@@ -1,0 +1,17 @@
+
+api:
+    cat-facts:
+        url: https://cat-fact.herokuapp.com
+        readTimeout: 1000
+        connectTimeout: 1000
+        secure: true
+    joke:
+        url: https://api.chucknorris.io
+        readTimeout: 2000
+        connectTimeout: 2000
+        secure: true
+management:
+    endpoints:
+        web:
+            exposure:
+                include: health, metrics, info, prometheus
