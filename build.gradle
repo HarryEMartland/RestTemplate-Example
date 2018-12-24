@@ -31,4 +31,5 @@ dependencies {
     compile("io.micrometer:micrometer-registry-prometheus")
     compile("org.apache.httpcomponents:httpclient")
     testCompile("junit:junit")
+    testCompile("org.mockito:mockito-all:1.9.5")
 }
