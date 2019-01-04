@@ -78,16 +78,15 @@ public class ApiConfiguration {
         meterRegistry.gauge("http.pool.total", Tags.of("status", "leased"), manager, (m) -> m.getTotalStats().getLeased());
         meterRegistry.gauge("http.pool.total", Tags.of("status", "pending"), manager, (m) -> m.getTotalStats().getPending());
         meterRegistry.gauge("http.pool.total", Tags.of("status", "available"), manager, (m) -> m.getTotalStats().getAvailable());
-
         monitor(manager,  apiProperties.getCatFacts());
         monitor(manager, apiProperties.getJoke());
         monitor(manager, apiProperties.getPostcode());
     }
 
-    private void monitor(PoolingHttpClientConnectionManager manager, ApiProperties.ApiProperty joke) {
-        HttpRoute jokeRoute = new HttpRoute(HttpHost.create(joke.getUrl()), null, joke.isSecure());
-        meterRegistry.gauge("http.pool", Tags.of("status", "leased", "host", joke.getUrl()), manager, (m) -> m.getStats(jokeRoute).getLeased());
-        meterRegistry.gauge("http.pool", Tags.of("status", "pending", "host", joke.getUrl()), manager, (m) -> m.getStats(jokeRoute).getPending());
-        meterRegistry.gauge("http.pool", Tags.of("status", "available", "host", joke.getUrl()), manager, (m) -> m.getStats(jokeRoute).getAvailable());
+    private void monitor(PoolingHttpClientConnectionManager manager, ApiProperties.ApiProperty api) {
+        HttpRoute jokeRoute = new HttpRoute(HttpHost.create(api.getUrl()), null, api.isSecure());
+        meterRegistry.gauge("http.pool", Tags.of("status", "leased", "host", api.getUrl()), manager, (m) -> m.getStats(jokeRoute).getLeased());
+        meterRegistry.gauge("http.pool", Tags.of("status", "pending", "host", api.getUrl()), manager, (m) -> m.getStats(jokeRoute).getPending());
+        meterRegistry.gauge("http.pool", Tags.of("status", "available", "host", api.getUrl()), manager, (m) -> m.getStats(jokeRoute).getAvailable());
     }
 }
