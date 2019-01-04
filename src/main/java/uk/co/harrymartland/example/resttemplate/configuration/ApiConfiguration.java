@@ -59,7 +59,6 @@ public class ApiConfiguration {
                 .rootUri(properties.getUrl())
                 .setConnectTimeout(properties.getConnectTimeout())
                 .setReadTimeout(properties.getReadTimeout())
-                .interceptors()
                 .build();
     }
 
@@ -70,7 +69,6 @@ public class ApiConfiguration {
                 .rootUri(properties.getUrl())
                 .setConnectTimeout(properties.getConnectTimeout())
                 .setReadTimeout(properties.getReadTimeout())
-                .interceptors()
                 .build();
     }
 
