@@ -17,7 +17,7 @@ public class PostCodeController {
     }
 
     @GetMapping("/postcode/{postcode}")
-    private PostCodeResponse getPostCode(@PathVariable String postcode) {
+    public PostCodeResponse getPostCode(@PathVariable String postcode) {
         return restTemplate.getForObject("/postcodes/{postcode}", PostCodeResponse.class, postcode);
     }
 
