@@ -16,14 +16,12 @@ public class PostCodeControllerTest {
 
     @Test
     public void shouldMakeRequest() {
-        String url = "/postcodes/{postcode}";
         String postcode = "AT3ST";
-        Class<PostCodeResponse> postcodeClass = PostCodeResponse.class;
-        when(restTemplate.getForObject(url, postcodeClass, postcode))
+        when(restTemplate.getForObject("/postcodes/{postcode}", PostCodeResponse.class, postcode))
                 .thenReturn(mockResponse);
 
         PostCodeResponse result = controller.getPostCode(postcode);
-        verify(restTemplate).getForObject(url, postcodeClass, postcode);
+        verify(restTemplate).getForObject("/postcodes/{postcode}", PostCodeResponse.class, postcode);
         assertEquals(mockResponse, result);
     }
 }
