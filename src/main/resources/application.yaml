@@ -2,18 +2,18 @@
 api:
     cat-facts:
         url: https://cat-fact.herokuapp.com
-        readTimeout: 1000
-        connectTimeout: 1000
+        readTimeout: 1s
+        connectTimeout: 1s
         secure: true
     joke:
         url: https://api.chucknorris.io
-        readTimeout: 2000
-        connectTimeout: 2000
+        readTimeout: 2s
+        connectTimeout: 2s
         secure: true
     postcode:
         url: https://api.postcodes.io
-        readTimeout: 1500
-        connectTimeout: 500
+        readTimeout: 1500ms
+        connectTimeout: 500ms
         secure: true
 management:
     endpoints:

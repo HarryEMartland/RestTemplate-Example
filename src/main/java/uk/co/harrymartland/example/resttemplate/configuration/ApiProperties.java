@@ -1,5 +1,6 @@
 package uk.co.harrymartland.example.resttemplate.configuration;
 
+import java.time.Duration;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -37,8 +38,8 @@ public class ApiProperties {
 
     public static class ApiProperty{
         private String url;
-        private int connectTimeout;
-        private int readTimeout;
+        private Duration connectTimeout;
+        private Duration readTimeout;
         private boolean secure;
 
         public String getUrl() {
@@ -49,19 +50,19 @@ public class ApiProperties {
             this.url = url;
         }
 
-        public int getConnectTimeout() {
+        public Duration getConnectTimeout() {
             return connectTimeout;
         }
 
-        public void setConnectTimeout(int connectTimeout) {
+        public void setConnectTimeout(Duration connectTimeout) {
             this.connectTimeout = connectTimeout;
         }
 
-        public int getReadTimeout() {
+        public Duration getReadTimeout() {
             return readTimeout;
         }
 
-        public void setReadTimeout(int readTimeout) {
+        public void setReadTimeout(Duration readTimeout) {
             this.readTimeout = readTimeout;
         }
 
