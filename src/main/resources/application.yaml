@@ -23,3 +23,6 @@ management:
 spring:
     application:
         name: rest-template-example
+    sleuth:
+        sampler:
+            probability: 1
